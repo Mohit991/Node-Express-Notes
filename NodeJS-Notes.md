@@ -124,7 +124,7 @@ Installs a specific package.
 **npm install <package_name> --save-dev**  
 Installs a specific package into dev dependencies. 
 
-**npm install <package_name>2<version>**  
+**npm install <package_name>@<version_number>**  
 Installs a specific version of a specific package.
 
 **npm update**  
@@ -133,7 +133,7 @@ Updates all of the packages to the latest version available in the npm registry.
 **npm update <package_name>**  
 Updates the specific package to the latest version available in the npm registry.  
 
-**npm update <package_name>@<version>**  
+**npm update <package_name>@<version_number>**  
 Updates the specific package to a specific version.  
 
 **npm run <script_name>**  
@@ -143,10 +143,10 @@ package.json will have a script object. This object will have many scripts. You 
 **npm list**  
 Lists all the packages installed in your project.  
 
-**npm list -g**
+**npm list -g**  
 Lists all the packages installed globally.  
 
-**npm uninstall <package_name>**
+**npm uninstall <package_name>**  
 Uninstall the package
 
 ### package.json file
