@@ -1,4 +1,4 @@
-# Node JS
+![image](https://github.com/user-attachments/assets/bdc51c23-cea8-4b0c-9648-9c551e600287)# Node JS
 ## Introduction  
 <img width="478" alt="{7DEDAF94-FA28-4992-A2D5-92895EBB76FC}" src="https://github.com/user-attachments/assets/580f377c-8906-4341-93c7-dc25bc477942">  
 
@@ -103,6 +103,132 @@ Code:
 
 Output:  
 <img width="444" alt="{E77BDC96-2B4D-4A24-9A8F-EDFC860A1634}" src="https://github.com/user-attachments/assets/6e833cb0-d132-4c66-8cb2-37a056de9a7b">  
+
+## Node Package Manager (NPM)
+To see the npm version:  
+`npm -v`  
+![image](https://github.com/user-attachments/assets/4a04e41d-e3f2-45b9-9103-38b77a28b654)  
+
+### npm commands
+![image](https://github.com/user-attachments/assets/6134d65d-8c0d-4cad-a3a9-a54e5a67004e)  
+
+**npm init**  
+Initlize the repository. Create the package.json file in the repository.  
+
+**npm install or npm i**  
+Installs all the packages in the package.json  
+
+**npm install <package_name>**  
+Installs a specific package. 
+
+**npm install <package_name> --save-dev**  
+Installs a specific package into dev dependencies. 
+
+**npm install <package_name>2<version>**  
+Installs a specific version of a specific package.
+
+**npm update**  
+Updates all of the packages to the latest version available in the npm registry.  
+
+**npm update <package_name>**  
+Updates the specific package to the latest version available in the npm registry.  
+
+**npm update <package_name>@<version>**  
+Updates the specific package to a specific version.  
+
+**npm run <script_name>**  
+package.json will have a script object. This object will have many scripts. You can run any script by mentioning the name of the script. eg npm start, npm run dev etc.  
+![image](https://github.com/user-attachments/assets/b237300b-cf5b-4216-aa47-2c81f0a5f0fb)  
+
+**npm list**  
+Lists all the packages installed in your project.  
+
+**npm list -g**
+Lists all the packages installed globally.  
+
+**npm uninstall <package_name>**
+Uninstall the package
+
+### package.json file
+Contains all the details about our project. Name, version, dependencies, scripts, author, license etc.  
+![image](https://github.com/user-attachments/assets/dfc4967c-5d21-447a-bfba-a82ab98293d7)  
+
+### package-lock.json file
+package.json will have the package name and the version. But it has a carrot symbol in the front. See:  
+
+`"dependencies": {
+    "dotenv": "^16.4.5",
+    "nodemon": "^3.1.7"
+  }`
+
+package-lock.json file will contain the exact version and additional details about the package. See:  
+`"node_modules/dotenv": {
+      "version": "16.4.5",
+      "resolved": "https://registry.npmjs.org/dotenv/-/dotenv-16.4.5.tgz",
+      "integrity": "sha512-ZmdL2rui+eB2YwhsWzjInR8LldtZHGDoQ1ugH85ppHKwpUHL7j7rN0Ti9NCnGiQbhaZ11FpR+7ao1dNsmduNUg==",
+      "license": "BSD-2-Clause",
+      "engines": {
+        "node": ">=12"
+      },
+      "funding": {
+        "url": "https://dotenvx.com"
+      }
+    },`
+
+package-lock.json is crucial for locking dependencies to specific versions, ensuring consistent installations across different environments. Without it, variations in installed versions may occur. This file guarantees reproducibility by specifying exact versions, preventing discrepancies. Including both package.json and package-lock.json in source control ensures that collaborators install the exact dependencies, maintaining uniformity.  
+package.json defines the project’s basic dependencies and configuration, while package-lock.json locks down the entire dependency tree to specific versions, ensuring consistent and reproducible builds. Together, they provide a robust system for managing dependencies in Node.js projects.  
+
+### Semantic Versioning
+![image](https://github.com/user-attachments/assets/691ef059-e4ca-46bc-b399-ad5cc41952d7)  
+
+First digit is 4, second is 18 and third is 1.  
+![{1FE0A0EC-91D9-4ED8-B88A-FFAF629F0F87}](https://github.com/user-attachments/assets/53f08ddd-d0d4-454c-8c86-1767e9ef6e0d)  
+
+**Carrot symbol (^)**  
+This symbol means the minor version or the patch version can be changed. So, if we run `npm update`, the package can be changed to the latest minor version or the latest patch version. With the carrot symbol the package will never be changed to the newer major version(first digit).  
+![image](https://github.com/user-attachments/assets/5e20a111-553a-4d3c-b581-3fc8325c72bd)  
+
+**Tild symbol (~)**
+Only update to the latest patch version. So, if we run `npm update`, the package can be changed to the latest patch version. With the tild symbol the package will never be changed to the newer major  or minor version. 
+![{113F1F3B-DC1D-4412-8774-E96019BE5D62}](https://github.com/user-attachments/assets/4acfd943-cac2-4a44-892e-2734e9a2c368)  
+
+### Exporting from JS files
+**moldule.exports**  
+![{5DAE71FB-7975-4D4E-B764-8C65FFB10632}](https://github.com/user-attachments/assets/552f0773-8805-44e5-9c91-c620008e033a)  
+
+Using it in index.js:  
+![{8D4DDBEB-EEB6-4388-856A-C472475D47B5}](https://github.com/user-attachments/assets/b86b82a9-f7de-4a86-ad7c-f6c891b63b91)  
+
+You can given any name to the object in index.js  
+![{8CDD17A6-54C1-4775-83D7-FF60BA8E2DCE}](https://github.com/user-attachments/assets/74b2bf36-afd3-41b7-9663-cfe2a5ac4aa2)  
+
+**exports.data**
+With this we will export data as an object. 
+![{AEC4D475-6306-41FD-9D9A-73606BA5B605}](https://github.com/user-attachments/assets/fbf97627-3e06-48ba-9954-cf9796569c73)  
+
+Using it in index.js  
+![{94F1BF15-8D0E-4C40-A811-A0950EF250D8}](https://github.com/user-attachments/assets/0a91f595-6f60-4cb2-84b4-fe48dbc6514d)  
+
+Exporting multiple objects:  
+![{F30F0220-1AF8-4E4F-AE07-75EA6D634BAE}](https://github.com/user-attachments/assets/c8a4f994-899b-4767-ad22-e77c09d2d337)  
+
+Using it in index.js  
+![{77ABBBD4-7D34-4796-8D5A-A1FC20C11989}](https://github.com/user-attachments/assets/8bd95377-cac0-44f8-b62b-d8abb5877da9)  
+
+Another way:  
+![{7CBB98A9-9C39-41D9-921C-CFF461A89142}](https://github.com/user-attachments/assets/a3493ac5-594f-48c2-9489-4d53fc505c80)  
+
+Using it:  
+![{E3D12D01-D92E-41B3-B255-E5A1ABCA6726}](https://github.com/user-attachments/assets/7e558d99-a2a0-4457-80e1-3a314f1ca8bb)  
+
+
+
+
+
+
+
+
+
 
 
  
