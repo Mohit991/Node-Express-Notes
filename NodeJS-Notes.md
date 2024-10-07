@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/bdc51c23-cea8-4b0c-9648-9c551e600287)# Node JS
+# Node JS
 ## Introduction  
 <img width="478" alt="{7DEDAF94-FA28-4992-A2D5-92895EBB76FC}" src="https://github.com/user-attachments/assets/580f377c-8906-4341-93c7-dc25bc477942">  
 
@@ -220,6 +220,94 @@ Another way:
 
 Using it:  
 ![{E3D12D01-D92E-41B3-B255-E5A1ABCA6726}](https://github.com/user-attachments/assets/7e558d99-a2a0-4457-80e1-3a314f1ca8bb)  
+
+## Error Handling in Node JS
+### Using Error class
+We created an error.js file. In this file we will create an error object and pass a message to it. We then print the error stack.  
+![image](https://github.com/user-attachments/assets/03a42b28-ebb3-4e96-b799-c4b60cf90aca)  
+
+Output:  
+<img width="455" alt="{91C19586-5386-4C98-BF25-714690526CBA}" src="https://github.com/user-attachments/assets/8a95be4c-9579-4192-a470-9173bead1e60">  
+
+If we just want to see the message, we can go for error.message:  
+![image](https://github.com/user-attachments/assets/9b5afaae-8d48-4104-86ad-ad71d65bd5c1)  
+
+Output:  
+<img width="453" alt="{82D0D19E-F85B-44A7-8D89-FAE6FC846C67}" src="https://github.com/user-attachments/assets/e015cb6d-a0b7-42fb-85f7-cebf310023e5">  
+
+Throwing an error using the throw keyword:  
+![image](https://github.com/user-attachments/assets/34338d6f-eaba-4fa4-afea-f697b07d1147)  
+
+Output:  
+<img width="444" alt="{FCC9F080-5EE0-4529-97D2-026A6996B153}" src="https://github.com/user-attachments/assets/000d057a-9b47-40f8-91c7-42f1d7e59c7c">  
+
+### Creating custom error class  
+Folder Structure:  
+<img width="182" alt="{96E0181C-7A17-4632-8F0F-2F3B7BFA5D16}" src="https://github.com/user-attachments/assets/19f23168-05cc-4942-8e96-19296d086d05">  
+
+CustomError.js  
+![image](https://github.com/user-attachments/assets/a8507d2c-4cbd-4f11-ab14-fadbea368ef3)  
+
+
+Error.js  
+![image](https://github.com/user-attachments/assets/8ebf48d1-02e4-4381-8d4e-55964b16504f)  
+
+Output:  
+<img width="444" alt="{AA4FD4AE-AC0F-403A-ADBF-1B089D730DDF}" src="https://github.com/user-attachments/assets/55e7be34-7dc0-415b-b5b5-0b334cfd513f">  
+
+### Try Catch
+error.js  
+![image](https://github.com/user-attachments/assets/d7911ffc-da24-4df7-aac7-bb43f77fee90)  
+
+doSomething() is never created. Hence we should get an exception in the try block and move to the catch.  
+<img width="440" alt="{763689E6-797C-4AEE-B968-231ADD463986}" src="https://github.com/user-attachments/assets/ff155e7e-ede3-4e90-947d-813a6367f010">  
+
+We get a reference error saying doSomething() is not defined.  
+We can fix it by defining the doSomething()  
+![image](https://github.com/user-attachments/assets/e4c1540e-3d50-464d-b867-2be3606666ff)  
+
+Output:  
+<img width="446" alt="{CF257D87-0054-4649-BD18-1FE083210C48}" src="https://github.com/user-attachments/assets/153b0352-9de1-4eac-ad3d-bb4ec33d24bb">  
+
+Another example of an error:  
+![image](https://github.com/user-attachments/assets/ca1d7fe7-6c25-4395-b7ac-1a22621d19b0)  
+
+We are calling an API which does not exist. Hence an exception should occure.  
+
+<img width="448" alt="{031E70BC-A502-4244-92A4-CAD153B0A6DC}" src="https://github.com/user-attachments/assets/ec831e8f-b36d-4a2d-a750-81b97b3ca892">  
+
+Expception says fetch failed.  
+
+
+### Exception with promises  
+![image](https://github.com/user-attachments/assets/e301bda9-0c01-46d3-853c-9c81420bb4e1)  
+
+### Exception with async/await
+![image](https://github.com/user-attachments/assets/59006d79-8b76-4002-a72f-b016fe2cc52f)  
+
+Output:  
+<img width="439" alt="{F3ED145E-3092-457C-999F-CAAC365770B3}" src="https://github.com/user-attachments/assets/0c3e90bd-8cbd-4a45-9daf-67dcc8000308">  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
