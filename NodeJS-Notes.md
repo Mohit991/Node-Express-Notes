@@ -288,6 +288,53 @@ Expception says fetch failed.
 Output:  
 <img width="439" alt="{F3ED145E-3092-457C-999F-CAAC365770B3}" src="https://github.com/user-attachments/assets/0c3e90bd-8cbd-4a45-9daf-67dcc8000308">  
 
+## File System and Path Module  
+Directory name, basename, extension of a file:  
+![image](https://github.com/user-attachments/assets/3c2e24cc-d9ba-4bab-b64f-4b99c76c2543)  
+
+Output:
+<img width="654" alt="{5F5587EB-866B-4E7D-8E6E-350D3C4E7825}" src="https://github.com/user-attachments/assets/2d5a2a35-6911-4625-895e-6644b99c4227">  
+
+More:  
+![image](https://github.com/user-attachments/assets/541411e9-88b0-4cd3-82f3-ea913414d7cf)  
+
+Joining Path:  
+![image](https://github.com/user-attachments/assets/14c4260e-8e96-46ea-b0e6-62f9f8c7356d)  
+
+Output:  
+<img width="642" alt="{BD4682B1-DBF8-48A3-B6C2-08B137A152F5}" src="https://github.com/user-attachments/assets/160eb792-de9d-4eb6-aff0-8909d43514f9">  
+
+### Using fs(file system) module
+![image](https://github.com/user-attachments/assets/efa83fa6-86da-413d-8e4a-6e7501b1ede6)  
+
+It shows some buffers:  
+<img width="437" alt="{0B0E5A17-A688-4909-A764-CD8E0A5C3D73}" src="https://github.com/user-attachments/assets/5080f056-94c6-4838-8367-a230ebe29a07">  
+
+Making it readable:  
+![image](https://github.com/user-attachments/assets/163fc6c8-6c7f-4a0a-bfdc-1127660dc5df)  
+
+Output:  
+<img width="443" alt="{0DAF4213-72FB-4B12-AA3D-0B758D7379FD}" src="https://github.com/user-attachments/assets/f86b0d3c-78ac-4046-88f1-4e47af977014">  
+
+readFile method reads the file in asynchronous way. To read a file in synchronous way, we can use readFileSync.  
+Lets use both path and fs modules together.  
+![image](https://github.com/user-attachments/assets/27e94f14-7e0e-45bd-b084-ea967afe8614)  
+
+For writing a file, we use writeFile() and writeFileSync() methods. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
