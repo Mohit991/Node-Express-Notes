@@ -1,4 +1,4 @@
-# Node JS
+<img width="442" alt="image" src="https://github.com/user-attachments/assets/e9953f2c-3d1e-4731-b1ba-be76e0f2c12e"># Node JS
 ## Introduction  
 <img width="478" alt="{7DEDAF94-FA28-4992-A2D5-92895EBB76FC}" src="https://github.com/user-attachments/assets/580f377c-8906-4341-93c7-dc25bc477942">  
 
@@ -320,7 +320,221 @@ readFile method reads the file in asynchronous way. To read a file in synchronou
 Lets use both path and fs modules together.  
 ![image](https://github.com/user-attachments/assets/27e94f14-7e0e-45bd-b084-ea967afe8614)  
 
-For writing a file, we use writeFile() and writeFileSync() methods. 
+For writing a file, we use writeFile() and writeFileSync() methods.  
+
+## Async Programming
+See the code below:  
+![image](https://github.com/user-attachments/assets/33d04c8c-3ae2-4a38-9908-7d28877af71a)  
+
+See the output:  
+<img width="445" alt="{22AA3893-2E28-463E-8930-D71359F5629B}" src="https://github.com/user-attachments/assets/d982ec7a-859f-40b8-8be4-effb0bdc866c">  
+
+The code is executed sequentially. First line then second line and so on.  
+This is sync programming.  
+See the code below:  
+![image](https://github.com/user-attachments/assets/bb07afe8-1ec4-4532-8977-5e798089f6fe)  
+
+Explaination: We are trying to create a delay in the execution. First we log `Start Operation` and then we call the sleep method.  
+In the function, we first log `Operation is running` then we check if 1000 ms have passed from the current time or not. While we check this we log `In Progress`. Once we are done we log `Operation is done`.  
+Then After the completion of the function we log `Do something else`.  
+
+Output:  
+<img width="442" alt="image" src="https://github.com/user-attachments/assets/296f0285-5e02-458c-be3a-c9fc23bdd7ec">  
+<img width="448" alt="{C559C08F-38A5-4A22-8828-4A0C56919D60}" src="https://github.com/user-attachments/assets/ca617ccf-d789-430c-baf1-190e75bd909a">  
+
+This is sync code. The execution happens one line then next line in sequence.  
+
+### How sync code executes
+<img width="478" alt="{B3439AE9-8BCF-4FD0-8C7E-9E0DE92B8882}" src="https://github.com/user-attachments/assets/b63f42b4-9818-4007-9c16-51013833437e">  
+
+JS runtime engine has two parts. Heap and the call stack.  
+Heap has the memory allocation.  
+Call stack will have the functions which we need to execute.  
+Remember that JS runs on a single thread. 
+In JavaScript, the **global execution context** is the environment in which your code runs when it's not inside any function. It's the base-level context, and it's created when the JavaScript engine starts executing your script.  
+
+For our code:  
+<img width="469" alt="{4F23FEF3-0F66-4CB5-BD69-46F56950D5ED}" src="https://github.com/user-attachments/assets/674a0bda-c6f6-4e56-874e-7f5dcfe226f2">  
+
+Final result:  
+<img width="445" alt="image" src="https://github.com/user-attachments/assets/e80e8c2e-4119-4bdf-9a51-c29763a7a1f0">  
+
+See the asnyc code:  
+![image](https://github.com/user-attachments/assets/2f4a5c52-fa38-432a-8f9d-5e58bc6695ce)  
+
+See the output:  
+<img width="434" alt="{CAE7009B-0158-465E-BA50-1A45E04C1B65}" src="https://github.com/user-attachments/assets/4f73c8ff-c1af-4b8d-9c25-d98ff662377a">  
+
+`Do something else` is printed before `operation is done!` which should not be the case in case of sync programming. But here, when we execute the setTimeout, we do not wait for its execution and simply move on to the next statement.  
+So, sync code is blocking as it blocks the execution until a statement is not completed. Async code on the other hand is non-blocking.  
+How sync code executes on the single thread:  
+First, `Start Operation` is printed.  
+<img width="467" alt="{BB35B738-B717-446A-89BB-FCE7EA14006E}" src="https://github.com/user-attachments/assets/911f7ce7-6d6b-4773-8413-fe36ef5f0860">  
+
+Then, sleep() is called. `Operation is running` is printed.  
+<img width="474" alt="{8866BAFD-3AA3-45EB-BF80-63A13443D6BD}" src="https://github.com/user-attachments/assets/6de96083-870f-43e9-8034-de61a7a86d71">  
+
+Then setTime() is called.  
+<img width="477" alt="{339BA88B-D0F4-4AE2-858B-EAF49B8F402D}" src="https://github.com/user-attachments/assets/6d56a60a-9e97-4e2c-aea1-d8d9ef554bcb">  
+
+cb in the picture means callback function.  
+1000 is the milliseconds we will wait for.  
+When the call stack sees the setTimeout(), it pops it out from the call stack and gives this setTimeout() to the web API. The browser has the web API on a different thread. The web API will execute your async code. Async functions include setTimeout(), setInterval(), event listeners etc.  
+<img width="474" alt="{3F966102-8ED3-47E9-8ABD-70504962C0BC}" src="https://github.com/user-attachments/assets/f1e21297-f812-4d08-9aa2-f8f74386b048">  
+
+All such callback events, when entered in the call stacks, are going to be passed to the web API which is a seperate execution thread.  
+After this `Do something else` is printed.  
+<img width="471" alt="{D103E19E-2406-48FF-ADF5-F88D273052FE}" src="https://github.com/user-attachments/assets/86cb4f7f-8678-4c9a-ba3d-0beabd205fd5">  
+
+In the web API, setTimeout() registers itself in the event table. Event table will then put this callback function in the task queue. All async task functions such as setTimeout(), setInterval(), addEventListerners, or AJAX calls etc. whomever accepts any callback functions are executed in such manner.  
+So, all the callback functions are passed to the task queue. Task queue will wait for the call stack to get empty and all the execution is finished.  
+Once the call stack is empty, the event loop will come into the picture.  
+Event loop will pass all the callbacks from the task queue to the call stack.  
+<img width="462" alt="image" src="https://github.com/user-attachments/assets/75289f59-3fb3-4937-8295-167888a4a05b">  
+
+<img width="468" alt="{FA7A0DF5-2DD1-408C-A8F1-AA0231D7AC5D}" src="https://github.com/user-attachments/assets/bf05c5e6-144c-4218-9916-4ff82f840e99">  
+
+Finally, the call stack will do the execution of the callback functions.  
+<img width="455" alt="{9AF5A31F-4992-4615-A28B-626B543FBD78}" src="https://github.com/user-attachments/assets/70886896-9258-4841-b6d3-7089147e5c50">  
+
+Finally, `operation is done!` is printed.  
+This is how async execution is done in JS.  
+Call stack is a single thread and we cannot perform async tasks on a single thread.  
+Note: JS is sync and single threaded language, but we can handle async tasks.  
+## Callback and Callback Hell
+Callback Function: It is a function which is passed as an argument to another function. The function to which this function is passed as an argument will exeucte this function at a later point of time.  
+Callbacks by themselves are not async. They are sync in nature.  
+Code:  
+![image](https://github.com/user-attachments/assets/cc2c9388-654a-48ed-ab35-5cbea9a02ae1)  
+
+Output:  
+<img width="443" alt="{6DC9BF8C-4F4A-4B65-BC03-E2450D699B37}" src="https://github.com/user-attachments/assets/64512527-fded-409a-add4-153e878a6c77">  
+
+Everything is happening in sync way.  
+We have to make the callbacks async manually.  
+See this code:  
+![image](https://github.com/user-attachments/assets/7e2a05ec-268e-4890-972c-ba5d48f69f32)  
+
+Gives error:  
+<img width="442" alt="{C5C3861C-6D76-42B5-B44F-6F299EE81809}" src="https://github.com/user-attachments/assets/a2438920-9927-4d3e-8cfe-fcd469c3686b">  
+
+Error is coming because callbacks are sync by nature. If we make it async then all the JS vars are created in memory first and then the callback is executed.  
+To change it to async, we will have to use something like setTimeout() etc. 
+See the code:  
+![image](https://github.com/user-attachments/assets/70651b21-095a-4859-a5ec-45bc5284edb8)  
+
+This time the function ran and printed the correct output. 
+Output:  
+<img width="446" alt="{CF8F76F0-1937-4F7E-9D9A-79DC440852A0}" src="https://github.com/user-attachments/assets/4b6c9205-3f15-46ff-be0d-c9856abb9e60">  
+
+We can also use async await to achive the same result.  
+### Error Handling
+![image](https://github.com/user-attachments/assets/1969a01f-a8e4-467b-b891-edd4f336a984)  
+
+`asyncTask((err, data) => {}` we have two arguments in our callback function. The first is the error and the second is the data. 
+The first argument is always going to be data and the second argument is always going to be data.  
+Code:  
+![image](https://github.com/user-attachments/assets/35683687-c437-4881-a001-29806f8691ca)  
+
+Output:  
+<img width="443" alt="{6C69A4B1-8A8F-4BDF-A8DA-1D58AAB1B4DB}" src="https://github.com/user-attachments/assets/bef5461c-3999-43f8-b44a-924893bc74b6">  
+
+### Callback Hell
+Callback hell refers to the situation in JavaScript where multiple nested callbacks create complex, deeply indented code, often called the “pyramid of doom.” This structure makes the code difficult to read, debug, and maintain, resulting in poor code quality and scalability issues.  
+
+Code:  
+![image](https://github.com/user-attachments/assets/f7ebc5b5-bd71-413c-a7e7-9f10c904c50d)  
+
+When a function is passed as an argument to another function, it becomes a callback function. This process continues and there are many callbacks inside another's Callback function.
+This grows the code horizontally instead of vertically. That mechanism is known as callback hell.  
+
+### Promises
+![image](https://github.com/user-attachments/assets/cbe568b7-3ce1-4623-9fcb-60187722a7e8)  
+
+First we create a promise using the Promise class. We pass a callback function. The function will get two arguments: resolve and reject.  
+Inside the function, based on certain condition, we can call the resolve function or the reject function. In the resolve or reject, we can pass any number of arguments. Here, we are passing messages; Success or Failure. 
+We call the promise p at line 11. p.then will get a call back, then is called if we call resolve from the promise ie if the promise is resolved. We have a callback in the p.then, which gets the message from resolve. 
+p.catch is called in case promise if rejected. We have a callback in the catch as well. This gets the argumnet sent from the reject method. 
+Output in case promise is resolved:  
+<img width="443" alt="{57DB76EB-98C8-4020-A756-7DD6CFD7F893}" src="https://github.com/user-attachments/assets/758d6406-e8f9-419b-a63d-d4e43e6608c4">  
+
+Output in case of promise is rejected:  
+Code:  
+![image](https://github.com/user-attachments/assets/e4524d0a-43ac-4c82-84e0-1f19a52ce748)  
+
+Output:  
+<img width="445" alt="{1B9999B7-C176-4329-8033-18B33E939354}" src="https://github.com/user-attachments/assets/a5a073bd-aec3-4d15-9ad2-2db9d62277c9">  
+
+Promises help us to prevent callback hells.  
+Calling multiple promises together using Promise.all():  
+<img width="466" alt="{6333A002-DE0B-46EB-A033-BF88325336D3}" src="https://github.com/user-attachments/assets/a970ed32-28f5-4271-9805-fff234287a45">  
+
+We pass an array of callbacks, they are executed one after the other. Once all the promises are resolved, we go to the then method. then will receive an array which will have messages from all three of the promises. See the output.  
+Note: All the promises are running at the same time when we call them using Promise.all(). 
+Promise.race() is exactly same as Promise.all() but Promise.all() goes to then once all of the promises are finished while Promise.race() will go to the then method as soon as the first promise is resolved. See the output. In the then we only got the message for the first callback because race goes to then as soon as the first promise is resolved.  
+Another example:  
+![image](https://github.com/user-attachments/assets/00749cb6-741f-45e9-8fdd-3afb4f5eb0e0)  
+
+Output in case of resolve:  
+<img width="447" alt="{8F95B1FF-5BB8-4AE7-BC34-7B18FA1F62CB}" src="https://github.com/user-attachments/assets/e3f62e9b-8a3c-4555-9645-cb8d6d463b1b">  
+
+Output in case of reject:  
+<img width="445" alt="{51FED784-45EC-40D2-9740-3E34223DE94A}" src="https://github.com/user-attachments/assets/9a64f7fa-4ea0-41a2-879d-e5788e3b71b4">  
+
+Using finally:  
+![image](https://github.com/user-attachments/assets/56cbf73b-7039-4db8-804e-077ee727c884)  
+
+Another note is that if you throw an error inside a promise, the promise will be considered as rejected and you will move to the catch method.  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
