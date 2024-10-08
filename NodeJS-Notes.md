@@ -509,6 +509,76 @@ In case of reject:
 Output:  
 <img width="446" alt="{F1C8F442-FFD0-47C3-A5D1-EEE91F6FE1DF}" src="https://github.com/user-attachments/assets/8c9a361f-8360-439c-acbf-2ae4a9637a6b">  
 
+Using Promise.all() again:  
+This time we will call an APIs using setTimeout(). See the code:  
+![image](https://github.com/user-attachments/assets/df64d7d8-64c1-41bf-8dca-33e6a3c65b45)  
+
+Remember that Promise.all() will execute all the promises simultenously.  
+Output:  
+![{55EE1A48-8307-4F31-8042-F1C0B4EC5301}](https://github.com/user-attachments/assets/7fcd1c19-113b-4f22-96b5-14b7636aeaa5)  
+
+Let's now use Promise.race()  
+![image](https://github.com/user-attachments/assets/c71cc016-e086-4ad8-a13f-8bb457be7cb4)  
+
+Output:  
+![{B4681E08-56A7-4FFD-8C4A-394A243EA371}](https://github.com/user-attachments/assets/841e4199-2dd7-4aef-9f2e-fb0d5ebd54ea)  
+
+200ms API is in the output because race returns the first promise which was resolved. Since 200ms is the least time hence this was completed first.  
+
+### Async Await
+See below code we are using for user authentication.  
+![image](https://github.com/user-attachments/assets/6e2672fe-4bb9-4d74-a344-ee83f09bf5cd)  
+
+Output:  
+![{520EA8CC-A484-4BB9-A4EB-C115AB5C28F0}](https://github.com/user-attachments/assets/bc7b0e14-cc94-432b-9260-5bc0781adc35)  
+
+Since promises are async by nature, we see that we move to the home page after authenticating the user. This happens because the credentials are correct.  
+What happens when the user authentication is not correct?
+Let's see:  
+![image](https://github.com/user-attachments/assets/104f1400-6376-4ef2-8a6b-aeaebf71a2c6)  
+
+Output:
+![{FB7D97B9-2701-4859-95DF-592BAC680C87}](https://github.com/user-attachments/assets/ae88289b-b110-4955-9f1c-09117c7682c1)  
+
+Exception occured. We can add a .catch to catch such exceptions.  
+![image](https://github.com/user-attachments/assets/84eeb2df-6615-4e1a-9587-df8d5dd6e0e6)  
+
+Output:  
+![{0E47E223-C35D-42A0-A0FE-984811147368}](https://github.com/user-attachments/assets/4d0625b0-96b9-4c76-9c5d-2207d484adce)  
+
+Let's do the same thing using async await.  
+![image](https://github.com/user-attachments/assets/cdc61ef1-caef-4f7e-b81f-914ed7aeb76e)  
+
+Output:  
+![{5B026DDE-DA1B-4398-AC58-03B18F65D717}](https://github.com/user-attachments/assets/5b60480b-d884-43c3-9795-a666773927b4)  
+
+But for wrong credentials, same thing is happening. We are getting an exception.  
+Let's handle it.  
+![image](https://github.com/user-attachments/assets/87e3b369-9a88-44cd-ae64-00825880063f)  
+
+Important: Do not forget to use async and await keywords properly. Otherwise what happens is that userLogin() and goToHomePage() will return a promise instead of what they have in resolve and reject. Which will cause issues.  
+
+### Performance
+In Promise.all(), we execute all the promises at the same time. 
+If we do the same thing we async await, then it will happen sequentially because await will stop for the first one to execute. Then second will be executed and then third will be executed.  
+So, async await can decrease your performance since we are executing sequntially instead of parallely in case of Promise.all().  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
