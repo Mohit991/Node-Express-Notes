@@ -1,4 +1,4 @@
-<img width="442" alt="image" src="https://github.com/user-attachments/assets/e9953f2c-3d1e-4731-b1ba-be76e0f2c12e"># Node JS
+# Node JS
 ## Introduction  
 <img width="478" alt="{7DEDAF94-FA28-4992-A2D5-92895EBB76FC}" src="https://github.com/user-attachments/assets/580f377c-8906-4341-93c7-dc25bc477942">  
 
