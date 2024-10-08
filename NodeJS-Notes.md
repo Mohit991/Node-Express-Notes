@@ -485,128 +485,29 @@ Using finally:
 ![image](https://github.com/user-attachments/assets/56cbf73b-7039-4db8-804e-077ee727c884)  
 
 Another note is that if you throw an error inside a promise, the promise will be considered as rejected and you will move to the catch method.  
+Callbacks are sync and we can make them async by using setTimeout() etc. 
+Promises on the other hand are async in nature.  
+See the code:  
+![image](https://github.com/user-attachments/assets/f2ed5d31-a18e-45f5-89f2-2c30d71b226f)  
 
+Output:  
+<img width="443" alt="{71951B85-6DD8-45BF-B1C0-C5D77E637E23}" src="https://github.com/user-attachments/assets/27c8b814-d82f-4a32-9ddd-791b7313fc95">  
 
+In callbacks, this would have been an error but with promises this is not an error but it works.  
 
+### Promise Chaining
+Promise chaining means chaining the then methods of the promises. First the first then will be executed and then the next then and so on.  
+We can also pass values to the next then from the previous then by returning some value. See the code:  
+![image](https://github.com/user-attachments/assets/bbc29a5a-61f3-4832-9948-730a71efffd7)  
 
+Output:  
+<img width="440" alt="{D6278349-25EE-4FFE-BCF7-DEA0CC3F67F0}" src="https://github.com/user-attachments/assets/dbade4f0-b74c-48d0-b283-d6afd5a406f4">  
 
+In case of reject:  
+![image](https://github.com/user-attachments/assets/f0fd780a-6626-4eaf-8af6-ccc206ae9905)  
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Output:  
+<img width="446" alt="{F1C8F442-FFD0-47C3-A5D1-EEE91F6FE1DF}" src="https://github.com/user-attachments/assets/8c9a361f-8360-439c-acbf-2ae4a9637a6b">  
 
 
 
