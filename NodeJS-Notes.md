@@ -563,6 +563,82 @@ In Promise.all(), we execute all the promises at the same time.
 If we do the same thing we async await, then it will happen sequentially because await will stop for the first one to execute. Then second will be executed and then third will be executed.  
 So, async await can decrease your performance since we are executing sequntially instead of parallely in case of Promise.all().  
 
+## Build REST API CRUD Project
+<img width="469" alt="{0F413C94-FB73-4414-99B2-01A41E3C10E1}" src="https://github.com/user-attachments/assets/0da4e964-6c27-40e1-8c4d-8cbb8b263490">  
+
+### REST API Conventions  
+<img width="475" alt="{737CD397-9AA4-4B21-8416-B89C28897F86}" src="https://github.com/user-attachments/assets/761c9368-c5ba-411a-8cef-405ce4a965dd">  
+
+### Creating REST API Project using Node (NO ADDITIONAL LIBRARY)
+Let's first create the package.json file using `npm init`  
+Let's create server.js file inside the directory. 
+Let's add start script in scripts in the package.json file.  
+![image](https://github.com/user-attachments/assets/2937b9e1-a21a-4a85-a14b-fd791a5320a8)  
+
+We can run the application using `npm start`  
+Let us now create a .env file which will have our enviornment variables.  
+Folder structure:  
+<img width="187" alt="{6974B73D-7E96-41C1-87CF-226D44E99A78}" src="https://github.com/user-attachments/assets/8b9db8f6-d13e-4e94-93f9-050bbd83b8da">  
+
+We will use thunder client extension to call the APIs.  
+Let's see the server.js file:  
+![image](https://github.com/user-attachments/assets/7c4e33a6-30cb-42f4-b199-c27a0180fcb0)  
+
+Let's hit the localhost 5000 and see the result.  
+<img width="480" alt="{EFEEC6BA-4556-4733-B5AF-62780B424F94}" src="https://github.com/user-attachments/assets/8abc8062-842b-4dfc-a49f-9e171434f1db">  
+
+By default, this is a GET request to localhost:5000  
+Let's go to inspect and then network tab.  
+<img width="477" alt="{0CD0DBCA-2F4E-403B-A68C-A5DCB87C62ED}" src="https://github.com/user-attachments/assets/2312cd2b-fa3e-4c25-b51c-42def9194c83">  
+
+This is a get request as you can see.  
+Let us see what the thunder client says about this:  
+<img width="441" alt="{2994CA3C-9B0B-4E0E-81C9-D4FD89CD862F}" src="https://github.com/user-attachments/assets/f791ec77-0b22-41c6-b302-06582006d642">  
+
+Let's see the updated folder structre:  
+<img width="202" alt="{164AB8FC-B6E9-49AF-93DE-D0D2D853FA84}" src="https://github.com/user-attachments/assets/fc0bb878-acfc-46d6-852c-11070013f894">  
+
+data folder contains the data which we will send from the backend API. For now, we are just going to send static data instead of data coming from a database.  
+movies.json:  
+![image](https://github.com/user-attachments/assets/585dc862-4f9c-46dc-9760-a8be302d9ae8)  
+
+methods folder will contain the methods which we will call for API calls.  
+We have four different files for four different request types.  
+Let's see the updated server.js which will make use of the methods.  
+server.js  
+![image](https://github.com/user-attachments/assets/76448911-cdfa-448a-a057-37fc4658df49)  
+
+Let's now create the methods.  
+Here is the get-request.js file:  
+![image](https://github.com/user-attachments/assets/1c88ced2-989d-42d7-89b3-429faf83d9a0)  
+
+
+Let's send a request to this API and see what we get.  
+<img width="478" alt="{3B04880B-8B56-4E6C-ACA3-816AE7E817F6}" src="https://github.com/user-attachments/assets/d2e5fba7-4724-4a02-867b-04b9569bf6f0">  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
