@@ -608,13 +608,52 @@ Let's see the updated server.js which will make use of the methods.
 server.js  
 ![image](https://github.com/user-attachments/assets/76448911-cdfa-448a-a057-37fc4658df49)  
 
+### Get All Movies
 Let's now create the methods.  
 Here is the get-request.js file:  
+We are creating a get method to get all the movies:  
 ![image](https://github.com/user-attachments/assets/1c88ced2-989d-42d7-89b3-429faf83d9a0)  
 
 
 Let's send a request to this API and see what we get.  
 <img width="478" alt="{3B04880B-8B56-4E6C-ACA3-816AE7E817F6}" src="https://github.com/user-attachments/assets/d2e5fba7-4724-4a02-867b-04b9569bf6f0">  
+
+### Get a Specific Movie
+To get a specific movie, we will have to get the id of the movie from the request URL.
+Let's split the URL using below code:  
+`let id = req.url.split("/")`  
+We got:  
+`[ '', 'api', 'movies', 'dsfdsfdsf' ]`  
+We need the last index of this. Let's get that:  
+`let id = req.url.split("/")[3]`  
+Let's create a REGEX to check if the uuid is correct of not:  
+I took it from the internet:  
+`const regrexV4 = new RegExp(
+        /^[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}$/i
+    );`  
+
+Let's see the complete code.  
+![image](https://github.com/user-attachments/assets/c005e72a-f08e-4547-b410-b6a90e3d9ed2)  
+
+### Creating a movie
+When we send the data to the server in a post request. We have to send it in request body. To get the body, we use body-parser. We can use that in express but in pure node, we need to use something else.  
+Let's create a util folder and body-parser.js file inside to read the body.    
+![image](https://github.com/user-attachments/assets/3ae6a00a-cb6c-4bf8-9388-7ef5bdd7acb0)  
+
+We also need to add this data to the movies.json file:  
+Let us make use of path and fs modules from node to construct the path and write to the json file.  
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
