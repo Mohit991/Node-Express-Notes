@@ -642,6 +642,26 @@ Let's create a util folder and body-parser.js file inside to read the body.
 
 We also need to add this data to the movies.json file:  
 Let us make use of path and fs modules from node to construct the path and write to the json file.  
+We will create a write-to-file.js in util folder. See the code:  
+![image](https://github.com/user-attachments/assets/69e32f52-5da4-425e-9d37-24c8e6cfe30e)  
+
+This code will write the data into the movies.json file.  
+Now, post is completed. See the post-request.json  
+![image](https://github.com/user-attachments/assets/ca295e8c-4ff9-4176-bb16-1ec46e0825c6)  
+
+### Delete a movie
+See the delete-request.js file:  
+![image](https://github.com/user-attachments/assets/023987cb-f1ac-4b8e-897f-8867f076eaf6)  
+
+### Updating a movie
+See the put-request.js file:  
+![image](https://github.com/user-attachments/assets/6c3ddb48-b003-4512-8273-ab21e9f27fef)  
+
+
+
+
+
+
 
 
 
