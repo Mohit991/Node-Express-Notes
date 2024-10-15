@@ -147,27 +147,97 @@ Let's get the router first.
 Let's create some routes. See the index.js:  
 ![image](https://github.com/user-attachments/assets/20b9a1ca-fe2f-4cee-8bbd-4c7afa321a08)  
 
+We are getting the JSON results back when we query the correct endpoints.  
+GET request at "/":  
+![{AF5527FB-040F-4C6F-933B-90BB4061C64A}](https://github.com/user-attachments/assets/e6af01da-2286-433f-b8bd-06e1b0c175a2)  
 
+POST request at "/":  
+![{D2DB61DC-4775-40AF-A180-7242BDD4A888}](https://github.com/user-attachments/assets/916cd0a9-f748-4bbc-a017-ca2621d0a4c6)  
 
+Let us now create a middleware which will act on the router level which basically means **Router Level Middleware**.  
+See the code:  
+![image](https://github.com/user-attachments/assets/add77f0a-6b18-4e92-acf5-8a94a302be45)  
 
+At the moment, authStatus is true, so, tje routes are working fine. If I make it false I see the error.  
+![{8067BDC9-1D78-41BE-AF51-03415780748D}](https://github.com/user-attachments/assets/a11b3b02-5496-4854-865c-14111f4bdfdf)  
 
+We get **401 Unauthorized**. Also, we get this HTML page in response. We do not want this HTML page in case of an error. We want some JSON. To work it out, we can make use of error handling middleware.  
 
+### Error Handling Middleware
+These middleware functions have four arguments (err, req, res, next) and are used to handle errors that occur during the request-response cycle.
+We will intercept the error response and we will change the response to a JSON object.  
+See code for error handler middleware:  
+![image](https://github.com/user-attachments/assets/30a65eb2-c8ec-4e16-9101-f3f9f0435451)  
 
+### Built-in Middleware
+Express.js comes with several built-in middleware functions, such as:
+express.json(): Parses incoming requests with JSON payloads.
+express.urlencoded(): Parses incoming requests with URL-encoded payloads.
+express.static(): Serves static files, such as images, CSS, and JavaScript files.  
 
+Let us send some data with the post request and try to access it.  
+createUser method:  
+![image](https://github.com/user-attachments/assets/f15ba94a-34be-4452-b367-4fcc6113ded6)  
 
+Sending the post request:  
+![{FFB5E956-4D84-42C5-93B9-F4F9B4178CCB}](https://github.com/user-attachments/assets/06d5e4e0-1df0-4812-ae4e-66b5cf2efe9f)  
 
+Console after the request:  
+![{8255C96F-EA5D-47F3-8662-1C537D610DD5}](https://github.com/user-attachments/assets/f636839b-8dd3-47b1-8b4a-6cec6c2e52e7)  
 
+Request body is undefined.  
+Let us use some built-in middlerware here. 
+![image](https://github.com/user-attachments/assets/aba69131-6160-4f48-9bba-ad15462d2d35)  
 
+Another built-in middleware is express.static()
+We will create a public folder first. See the folders:  
+![{FCADECB6-41DF-4C67-9810-8F03778D5CFD}](https://github.com/user-attachments/assets/20146cdf-7fc6-43ee-bb40-e0ad5a0dc795)  
 
+Now, we write this code and make our public folder available.
+![image](https://github.com/user-attachments/assets/a81a6589-728f-4c59-b68e-8454183ea1c1)  
 
+If we go to any URLs such as `http://localhost:5001/images/animal.jfif` the file can be accessed or downloaded.
+Let us change the URL.  
+![image](https://github.com/user-attachments/assets/1d23729f-c2cd-4151-ae24-ab0793fda44d)  
 
+Now the files are accessible via `http://localhost:5001/staic/images/animal.jfif`   
 
+Using app.all(), see at the end:  
+![image](https://github.com/user-attachments/assets/de016299-864a-4db2-9051-f1b41a2d43a7)  
 
+### Third Party Middlewares
+Express.js is a minimalist framework, which means it doesn't come with a lot of built-in functionality. Instead, it relies heavily on third-party middleware to add features and functionality to your applications.  
+Here are a few popular third-party middleware used with Express: <br> 
+**For handling requests and responses**:  
+**body-parser**:  
+Parses incoming request bodies in a middleware before your handlers, available under the body property of the request object.  
+**cookie-parser**:<br>
+Parses cookies attached to the request and makes them available under the cookies property of the request object.<br>
+**cors**:<br>
+Enables Cross-Origin Resource Sharing (CORS), allowing your server to handle requests from different origins.<br>
+**multer**:<br>
+Handles multipart/form-data, which is primarily used for uploading files.<br><br>
+**For security and performance**:<br>
+**helmet**:<br>
+Sets various HTTP headers to help secure your app from common attacks like XSS, clickjacking, and more.<br>
+**compression**:<br>
+Compresses response bodies, improving performance and reducing bandwidth usage.<br>
+**morgan**:<br>
+HTTP request logger, providing detailed information about incoming requests.<br>
+**rate-limiter**:<br>
+Limits the rate at which requests can be made to your API, preventing abuse and overload.<br><br>
+**For authentication and authorization**:<br>
+**passport**: <br>
+Provides authentication strategies for various authentication mechanisms like local (username and password), OAuth, and OpenID.<br>
+**jsonwebtoken**:<br>
+For creating and verifying JSON Web Tokens (JWTs), which are commonly used for authentication in APIs.<br>
+**express-session**: <br>
+Middleware to manage sessions in your Express applications.<br><br>
+**How to use third-party middleware**:<br>
+**Install the package**: Use npm or yarn to install the middleware package.<br>
+**Import the middleware**: Use the require() function to import the middleware into your app.<br>
+**Use the middleware**: Call the middleware function with app.use() to apply it to all routes, or with router.use() to apply it to specific routes.<br><br>
 
-
-
-
-
-
-
+Here is the final index.js file:  
+![image](https://github.com/user-attachments/assets/c15a05d9-b6e2-49a2-a45a-6b20dfa86cb8)  
 
