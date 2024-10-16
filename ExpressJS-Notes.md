@@ -118,7 +118,7 @@ End the request-response cycle.
 Call the next middleware function in the stack.**
 If the current middleware function does not end the request-response cycle, it must call next() to pass control to the next middleware function. Otherwise, the request will be left hanging.
 
-### Types of middleware
+## Types of middleware
 1. Application-level middleware
 2. Third-party middleware
 3. Router-level middleware
@@ -240,4 +240,93 @@ Middleware to manage sessions in your Express applications.<br><br>
 
 Here is the final index.js file:  
 ![image](https://github.com/user-attachments/assets/c15a05d9-b6e2-49a2-a45a-6b20dfa86cb8)  
+
+## Contact Manager App - Express and MongoDB
+### Restful API Conventions
+<img width="473" alt="image" src="https://github.com/user-attachments/assets/11ed7502-1459-476c-a6ac-a8fb88f1f280">  
+
+### Basics
+Creating folder and using `git init` to initilize the rep.  
+Let's install necessary packages such as express, nodemon, dotenv etc.  
+Let's us create the server.js file.  
+Let's us add the start and dev commands in scripts part of the package.json  
+![image](https://github.com/user-attachments/assets/67f40ba5-8938-4591-86d1-2af5aaa5ef86)  
+
+Let us create an env file and put the PORT variable there.
+Let us create the server.js file:  
+![image](https://github.com/user-attachments/assets/80273be0-d4ce-4ae4-afe3-0040ba8b416b)  
+
+### Creating Routes
+Folder structure:  
+<img width="220" alt="{824FF33C-7962-4C7D-9C8B-A267A879F046}" src="https://github.com/user-attachments/assets/be3b32e4-90ca-432c-9ad3-8013a30d8691">  
+
+contactRoutes.js file:  
+![image](https://github.com/user-attachments/assets/d6625a82-faf1-4fac-8e27-35420ea08d8e)  
+
+server.js updated:  
+![image](https://github.com/user-attachments/assets/61fe07c7-8d6f-4714-8bc7-eb6b6c54802c)  
+
+### Creating Controller
+Folder structure:  
+<img width="228" alt="{B9EDCE48-BF19-4C61-AC51-9058DE6B1D60}" src="https://github.com/user-attachments/assets/bac3a633-d8e5-40b3-bf02-15734baf70da">  
+
+We will put our logic for all this CRUD functions in the controllers.  
+Here is the contactController.js file:  
+![image](https://github.com/user-attachments/assets/f2b53925-f967-4cf7-bf5a-0b2509869ded)  
+
+These controller functions will be used to in contactRoutes file. See the contactRoutes.js file:  
+![image](https://github.com/user-attachments/assets/b6b9d2fc-303c-4a9a-bdea-0f5a71f84caf)  
+
+We can modify contactRoutes.js to shorten the code:  
+![image](https://github.com/user-attachments/assets/c0eb50db-4555-488d-81c2-927ea4e823bd)  
+
+Let's send the data in body in the post request.  
+We need a middleware to do that. We will use **express.json()** to parse and read the request body on the server side.  
+server.js modified:  
+![image](https://github.com/user-attachments/assets/3e38d09d-7372-447a-8af0-b3bbd3b9be1f)  
+
+createNewContact method looks like this:  
+![image](https://github.com/user-attachments/assets/0e93c0b3-1d48-4a16-ae85-07190e19276f)  
+
+We need a middleware to check for errors and send json response in case of an error. For that, we will create a middleware folder and inside that middleware functions.  
+We first create a constants.js file to keep our constants:  
+![image](https://github.com/user-attachments/assets/485c9d5f-d083-4062-a37e-0ff0c25d8eba)  
+
+Let us use this in our error handler middleware.  
+errorHandler.js:  
+![image](https://github.com/user-attachments/assets/99a99396-6f64-439a-9348-b9c843050d13)  
+
+Using the middleware in server.js file:  
+![image](https://github.com/user-attachments/assets/4fe0591c-c041-4f48-a61d-87ed0545850d)  
+
+We will use `express-async-handler` to handler errors in async functions.  
+asyncHandler will hanlder the errors/exceptions, we dont have to write try catch blocks etc.  
+contactController.js:  
+![image](https://github.com/user-attachments/assets/8f0e3b5e-befa-40d4-a61b-ba0e1ff837de)  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
