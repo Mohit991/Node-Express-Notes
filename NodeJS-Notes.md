@@ -28,7 +28,7 @@ This means when I hit `npm start`, it will automatically run `node index.js`
 Folder structure so far:  
 <img width="183" alt="{6030AD09-61D4-4E37-9403-7CE0BB3C4EDE}" src="https://github.com/user-attachments/assets/de0c3665-1feb-4b09-a601-d33c961e9299">  
 
-We have created index.js file.  
+We have created index.js file.   
 index.js so far:  
 <img width="448" alt="{A85DD60A-90F1-4BFE-9421-F6932F584A1B}" src="https://github.com/user-attachments/assets/414a4818-f56a-4124-8929-1e0b5afcd798">  
 
