@@ -1,4 +1,4 @@
-# ExpressJS
+![image](https://github.com/user-attachments/assets/cd68ffea-e977-42ee-8d4f-1b4e6c1c8f51)# ExpressJS
 <img width="352" alt="{33D7285C-7847-4527-9D67-555B234B6523}" src="https://github.com/user-attachments/assets/c9b2763c-3b6d-4f78-8398-b90c7fba7809">  
 
 <img width="427" alt="{B1E54817-5859-4B92-A83B-75074130B6E3}" src="https://github.com/user-attachments/assets/1680a4cb-0d7a-4bec-a24b-a5c4ed9c863a">  
@@ -323,6 +323,29 @@ contactModel.js:
 
 We will use this contactModel in our contactController.js file:  
 ![image](https://github.com/user-attachments/assets/13b80080-5e9b-4c18-a64c-c92722891dd2)  
+
+## JWT Authentication and Protecting Routes
+Let us create a userRoutes.js file in the routes folder. 
+userRoutes.js file:  
+![image](https://github.com/user-attachments/assets/7b343929-0301-4d52-81b5-a3316eecf025)  
+
+Updated server.js file:  
+![image](https://github.com/user-attachments/assets/8478af1c-a955-4d91-b79e-03d2b952171a)  
+
+Let us create userController.js in the controllers folder. 
+userController.js file:  
+![image](https://github.com/user-attachments/assets/7e1ecb19-9e1d-4c7d-8a17-59be5afe44e1)  
+
+Let us now create the user model in the models folder. 
+userModel.js file:  
+![image](https://github.com/user-attachments/assets/79d734cd-61cf-4508-9460-29dcee893a99)  
+
+
+
+
+
+
+
 
 
 
