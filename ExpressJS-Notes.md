@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/0f3fde76-b0fc-4902-bebf-6fe4760e1251)# ExpressJS
+# ExpressJS
 <img width="352" alt="{33D7285C-7847-4527-9D67-555B234B6523}" src="https://github.com/user-attachments/assets/c9b2763c-3b6d-4f78-8398-b90c7fba7809">  
 
 <img width="427" alt="{B1E54817-5859-4B92-A83B-75074130B6E3}" src="https://github.com/user-attachments/assets/1680a4cb-0d7a-4bec-a24b-a5c4ed9c863a">  
