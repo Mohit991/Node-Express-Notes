@@ -304,6 +304,35 @@ asyncHandler will hanlder the errors/exceptions, we dont have to write try catch
 contactController.js:  
 ![image](https://github.com/user-attachments/assets/8f0e3b5e-befa-40d4-a61b-ba0e1ff837de)  
 
+### Connecting to MongoDB
+To connect to mongo db, lets install mongoose.  
+Let us create a configs folder and dbConnection.js file inside that.  
+dbConnection.js file:  
+![image](https://github.com/user-attachments/assets/e10fd9a7-82ce-4815-b2f7-0674104aa302)  
+
+server.js file:  
+![image](https://github.com/user-attachments/assets/d87a203a-0e26-41d8-bc68-c45ec9a7b28a)  
+
+### Creating Models
+Let us create models folder and contactModel file inside that.  
+See the folder structure:  
+![{E1E67652-1898-4B50-86A3-416FA1F9EB66}](https://github.com/user-attachments/assets/d8af8f0f-c177-42be-9d59-e042a4dc76bc)  
+
+contactModel.js:  
+![image](https://github.com/user-attachments/assets/5c355945-7615-4684-983b-61356aeadc86)  
+
+We will use this contactModel in our contactController.js file:  
+![image](https://github.com/user-attachments/assets/13b80080-5e9b-4c18-a64c-c92722891dd2)  
+
+
+
+
+
+
+
+
+
+
 
 
 
