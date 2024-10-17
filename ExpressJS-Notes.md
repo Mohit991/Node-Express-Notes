@@ -361,7 +361,7 @@ Sending the post request and getting the access token:
 
 With this access token, we can access all our private routes.  
 All the routes we created in the contactRoutes should be private. This is because user should only be able to access those routes if they are logged in or they are authenticated.  
-To ensure that we need to protect all the contact routes.  
+To ensure that, we need to protect all the contact routes.  
 Also, we have one of our routes in user routes as a private route. That is:  
 `//@desc Get current user info
 //@route POST /api/users/current
@@ -375,13 +375,38 @@ Let us create a middleware to verify the token.
 The folder structure:  
 ![image](https://github.com/user-attachments/assets/bd12533c-893c-434f-9da4-14c48e2b9726)  
 
-Token is passed in the request header. The field name is `Authorization`. The value will be `Bearer <token>`.  
+The token is passed in the request header. The field name is `Authorization`. The value will be `Bearer <token>`.  
 
 Here is the tokenHandler.js file in the middleware folder.  
 ![image](https://github.com/user-attachments/assets/304a2d1f-6df8-4754-a996-fa38ad491bfa)  
 
 Let us change the userRoutes.js file to make use of the tokenHanlder and protect the /current route.  
 ![image](https://github.com/user-attachments/assets/5bccc3dc-9f61-4865-b5fd-eaca4bb813aa)  
+
+Here is the updated currentUser function in userController.js file:  
+![image](https://github.com/user-attachments/assets/ac7f1bf6-aa02-4246-a11e-88eaf2a385a7)  
+
+Next, each contact must belong to a user. To achieve this we have to update the contactModel.  
+We need to add a user_id which will be a foreign key referencing the userModel.  
+Here is the contactModel.js:  
+![image](https://github.com/user-attachments/assets/1aba46d1-4005-44e4-a51a-0f4c1f0f0ee0)  
+
+The next step is to make all the contact routes private instead of public.  
+In the contact controller, I will just change the @access to private in the comments. That's all.  
+![image](https://github.com/user-attachments/assets/f2716f70-75ca-42fb-a4e2-a28fe9f1a060)  
+
+We will now add the middleware in the contactRoutes.js:  
+![image](https://github.com/user-attachments/assets/3b8f3bc5-e423-449d-896f-2f0ad108c68c)  
+
+Finally, we need to update our contactController. This is because each contact now belongs to a specific user. When we go to `api/contacts`, it should return all the contacts for the logged in user.  
+We need to add these details in our contactsController.js file.  
+![image](https://github.com/user-attachments/assets/0bfdea09-cddd-4127-9dd4-5e54ea2b7825)
+
+
+
+
+
+
 
 
 
