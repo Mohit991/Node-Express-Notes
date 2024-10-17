@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/cd68ffea-e977-42ee-8d4f-1b4e6c1c8f51)# ExpressJS
+![image](https://github.com/user-attachments/assets/0f3fde76-b0fc-4902-bebf-6fe4760e1251)# ExpressJS
 <img width="352" alt="{33D7285C-7847-4527-9D67-555B234B6523}" src="https://github.com/user-attachments/assets/c9b2763c-3b6d-4f78-8398-b90c7fba7809">  
 
 <img width="427" alt="{B1E54817-5859-4B92-A83B-75074130B6E3}" src="https://github.com/user-attachments/assets/1680a4cb-0d7a-4bec-a24b-a5c4ed9c863a">  
@@ -325,20 +325,79 @@ We will use this contactModel in our contactController.js file:
 ![image](https://github.com/user-attachments/assets/13b80080-5e9b-4c18-a64c-c92722891dd2)  
 
 ## JWT Authentication and Protecting Routes
-Let us create a userRoutes.js file in the routes folder. 
+### Creating user routes and user controller
+Let us create a userRoutes.js file in the routes folder.  
 userRoutes.js file:  
 ![image](https://github.com/user-attachments/assets/7b343929-0301-4d52-81b5-a3316eecf025)  
 
 Updated server.js file:  
 ![image](https://github.com/user-attachments/assets/8478af1c-a955-4d91-b79e-03d2b952171a)  
 
-Let us create userController.js in the controllers folder. 
+Let us create userController.js in the controllers folder.  
 userController.js file:  
 ![image](https://github.com/user-attachments/assets/7e1ecb19-9e1d-4c7d-8a17-59be5afe44e1)  
 
-Let us now create the user model in the models folder. 
+Now, let us create the user model in the models folder.  
 userModel.js file:  
 ![image](https://github.com/user-attachments/assets/79d734cd-61cf-4508-9460-29dcee893a99)  
+
+We have used bcrypt package for hasing the password. We have created the registerUser function in the userController.  
+![image](https://github.com/user-attachments/assets/f76c1e5a-1596-4819-b55a-003771377539)  
+
+Now we are able to register the user. But for login and current user, we need to use some sort of token.  
+Here, we will use the **JSON Web Token**.  
+
+### JSON Web Tokens
+Install the package:  
+`npm i jsonwebtoken`  
+How the login functionality will work:  
+The user will send an email and password. We will authenticate the user with the password.  
+If authenticated, we will send a token back to the user.  
+See the loginUser method in userController.js file:  
+![image](https://github.com/user-attachments/assets/6febbf86-a346-47c6-b588-4fa9c31312ec)  
+
+Sending the post request and getting the access token:  
+![image](https://github.com/user-attachments/assets/3e3653d6-2a28-4224-8aed-4b46a4fc76c2)  
+
+With this access token, we can access all our private routes.  
+All the routes we created in the contactRoutes should be private. This is because user should only be able to access those routes if they are logged in or they are authenticated.  
+To ensure that we need to protect all the contact routes.  
+Also, we have one of our routes in user routes as a private route. That is:  
+`//@desc Get current user info
+//@route POST /api/users/current
+//@access private
+const currentUser = asyncHandler((req, res) => {
+    res.json({ message: "Get current user info" });
+});
+`  
+The user should provide an access token. Only then they should be able to access this route.  
+Let us create a middleware to verify the token.  
+The folder structure:  
+![image](https://github.com/user-attachments/assets/bd12533c-893c-434f-9da4-14c48e2b9726)  
+
+Token is passed in the request header. The field name is `Authorization`. The value will be `Bearer <token>`.  
+
+Here is the tokenHandler.js file in the middleware folder.  
+![image](https://github.com/user-attachments/assets/304a2d1f-6df8-4754-a996-fa38ad491bfa)  
+
+Let us change the userRoutes.js file to make use of the tokenHanlder and protect the /current route.  
+![image](https://github.com/user-attachments/assets/5bccc3dc-9f61-4865-b5fd-eaca4bb813aa)  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
