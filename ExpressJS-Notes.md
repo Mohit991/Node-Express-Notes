@@ -1,11 +1,11 @@
 # ExpressJS
-<img width="352" alt="{33D7285C-7847-4527-9D67-555B234B6523}" src="https://github.com/user-attachments/assets/c9b2763c-3b6d-4f78-8398-b90c7fba7809">  
+<img width="352" alt="{33D7285C-7847-4527-9D67-555B234B6523}" src="https://github.com/user-attachments/assets/c9b2763c-3b6d-4f78-8398-b90c7fba7809"><br>  
 
-<img width="427" alt="{B1E54817-5859-4B92-A83B-75074130B6E3}" src="https://github.com/user-attachments/assets/1680a4cb-0d7a-4bec-a24b-a5c4ed9c863a">  
+<img width="427" alt="{B1E54817-5859-4B92-A83B-75074130B6E3}" src="https://github.com/user-attachments/assets/1680a4cb-0d7a-4bec-a24b-a5c4ed9c863a"> <br> 
 
-<img width="420" alt="{F9A51D42-0E61-4E1E-9625-6F8CD716544E}" src="https://github.com/user-attachments/assets/84b55933-9c59-446c-94cd-2d4e66e0ce2f">  
+<img width="420" alt="{F9A51D42-0E61-4E1E-9625-6F8CD716544E}" src="https://github.com/user-attachments/assets/84b55933-9c59-446c-94cd-2d4e66e0ce2f">  <br>
 
-<img width="432" alt="image" src="https://github.com/user-attachments/assets/38b32f83-13e6-47c3-aa62-5011e316caea">  
+<img width="432" alt="image" src="https://github.com/user-attachments/assets/38b32f83-13e6-47c3-aa62-5011e316caea">  <br>
 
 ## Setup
 Installing Express:
@@ -400,7 +400,11 @@ We will now add the middleware in the contactRoutes.js:
 
 Finally, we need to update our contactController. This is because each contact now belongs to a specific user. When we go to `api/contacts`, it should return all the contacts for the logged in user.  
 We need to add these details in our contactsController.js file.  
-![image](https://github.com/user-attachments/assets/0bfdea09-cddd-4127-9dd4-5e54ea2b7825)
+![image](https://github.com/user-attachments/assets/0bfdea09-cddd-4127-9dd4-5e54ea2b7825)  
+
+## Final Folder Structure
+![image](https://github.com/user-attachments/assets/60b34453-39c9-4345-8c82-7ebf6a8e4cb4)
+
 
 
 
